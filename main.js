@@ -1,5 +1,6 @@
 img="";
 status="";
+objects=[];
 function preload(){
     img=loadImage("dog_cat.jpg");
 }
@@ -19,23 +20,25 @@ function getResult(error,results){
        console.log(error);
    }else{
        console.log(results);
-   }
+       objects=results;
+       console.log(objects);
+    }
 }
-
 function draw(){
     image(img,0,0,640,420);
 
-    fill("red");
-    textSize(20);
-    text("Dog",50,100);
-    noFill();
-    stroke("red");
-    rect(30,60,350,300)
+   
 
-    fill("blue");
-    textSize(20);
-    text("Cat",280,140);
-    noFill();
-    stroke("blue");
-    rect(270,60,300,300)
+    if(status!=""){
+        console.log(objects);
+        for(i=0;i<objects.length;i++){
+            document.getElementById("status").innerHTML="Status:Object Detected";
+            fill("red");
+            confidence=floor(objects[i].confidence*100);
+            text(objects[i].label+" "+confidence+"%",objects[i].x+15,objects[i].y+15);
+            noFill();
+            stroke("red");
+            rect(objects[i].x,objects[i].y,objects[i].width,objects[i].height);
+        }
+    }
 }

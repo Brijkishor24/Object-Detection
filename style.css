@@ -15,3 +15,16 @@ font-size: 18px;
 canvas{
     border: 10px solid rebeccapurple;
 }
+ /*fill("red");
+    textSize(20);
+    text("Dog",50,100);
+    noFill();
+    stroke("red");
+    rect(30,60,350,300)
+
+    fill("blue");
+    textSize(20);
+    text("Cat",280,140);
+    noFill();
+    stroke("blue");
+    rect(270,60,300,300);*/
